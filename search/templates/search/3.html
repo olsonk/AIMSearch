@@ -1,0 +1,8 @@
+<ul>
+{% for standard in standards %}
+	<li><a href="{% url 'search:standard' standard.id %}">{{ standard.code }}</a></li>
+		<ul>
+		<li>{{ standard.text }}</li>
+		</ul>
+{% endfor %}
+</ul>

@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'search/style.css' %}" />
+
+<h1>{{ issue.source_name }} {{ issue }}</h1>
+
+<ul>
+{% for activity in activities %}
+	<li><h4>{{ activity.title }}</h4></li>
+		<ul>
+		{% for standard in activity.standards.all %}
+			<li><a href="{% url 'search:standard' standard.id %}">{{ standard }}</a></li>
+		{% endfor %}
+			<li>{{ activity.goals }}</li>
+			<li>{{ activity.description }}</li>
+		</ul>
+{% endfor %}
+</ul>
+

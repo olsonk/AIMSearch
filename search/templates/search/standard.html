@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'search/style.css' %}" />
+
+<h1>{{ standard.code }}</h1>
+<h4>{{ standard.text }}</h4>
+<br><br>
+<ul>
+{% for activity in standard.activity_set.all %}
+	<li>AIMS Magazine, {{ activity.issue }} - {{ activity }}</li>
+	<ul>
+		<li>{{ activity.goals }}</li>
+		<li>{{ activity.description }}</li>
+		<ul>
+{% endfor %}
+</ul>

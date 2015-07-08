@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'search/style.css' %}" />
+
+<h1>Welcome to AimSearch!</h1>
+
+<center>
+<p>Select a grade level:</p>
+<a href="{% url 'search:grade' 'K' %}"><div class="button">Kindergarten</div></a>
+<a href="{% url 'search:grade' 1 %}"><div class="button">Grade 1</div></a>
+<a href="{% url 'search:grade' 2 %}"><div class="button">Grade 2</div></a>
+<a href="{% url 'search:grade' 3 %}"><div class="button">Grade 3</div></a>
+<a href="{% url 'search:grade' 4 %}"><div class="button">Grade 4</div></a>
+<a href="{% url 'search:grade' 5 %}"><div class="button">Grade 5</div></a>
+<a href="{% url 'search:grade' 6 %}"><div class="button">Grade 6</div></a>
+</center>
+<p>Or, search by issue:</p>
+<ul>
+{% for issue in issues %}
+	<li><a href="{% url 'search:issue' issue.id %}">{{ issue }}</li>
+{% endfor %}
+</ul>
